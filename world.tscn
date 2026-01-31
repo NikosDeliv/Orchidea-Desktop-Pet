@@ -1,0 +1,108 @@
+[gd_scene load_steps=17 format=3 uid="uid://buc2o161cl4ed"]
+
+[ext_resource type="Script" uid="uid://yc3e8v74xsfj" path="res://main.gd" id="1_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://dtmqoxpyn4v7g" path="res://Sprites/Orchidea_Idle1.png" id="2_036b0"]
+[ext_resource type="Texture2D" uid="uid://2pgx5juryt7g" path="res://Sprites/Orchidea_Idle2.png" id="3_dwbse"]
+[ext_resource type="Script" uid="uid://co73vyty01rrc" path="res://animated_sprite_2d.gd" id="4_pkg7o"]
+[ext_resource type="Script" uid="uid://d00671j1rj4y7" path="res://TransparentWindow.cs" id="5_036b0"]
+[ext_resource type="Texture2D" uid="uid://dvnd8ockyyx2d" path="res://Sprites/Orchidea_Sleeping1.png" id="5_ioo17"]
+[ext_resource type="Texture2D" uid="uid://cl3xuvp5i2q3v" path="res://Sprites/Orchidea_Sleeping2.png" id="6_wse8f"]
+[ext_resource type="Texture2D" uid="uid://blfwjgb1hoa1b" path="res://Sprites/Orchidea_Sleeping3.png" id="7_ic0uy"]
+[ext_resource type="Texture2D" uid="uid://dvh4pjcv37pje" path="res://Sprites/Orchidea_Walking.png" id="8_ioo17"]
+[ext_resource type="Texture2D" uid="uid://bjfg0or678r5w" path="res://Sprites/orchidea_Startled.png" id="8_wse8f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wse8f"]
+atlas = ExtResource("8_ioo17")
+region = Rect2(0, 0, 57, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic0uy"]
+atlas = ExtResource("8_ioo17")
+region = Rect2(57, 0, 57, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3n1d"]
+atlas = ExtResource("8_ioo17")
+region = Rect2(114, 0, 57, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o6r5"]
+atlas = ExtResource("8_ioo17")
+region = Rect2(171, 0, 57, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70uel"]
+atlas = ExtResource("8_ioo17")
+region = Rect2(228, 0, 57, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y32ns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_036b0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dwbse")
+}],
+"loop": true,
+"name": &"Orchidea_Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ioo17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wse8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ic0uy")
+}],
+"loop": true,
+"name": &"Orchidea_Sleeping",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wse8f")
+}],
+"loop": true,
+"name": &"Orchidea_Startled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wse8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic0uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3n1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o6r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70uel")
+}],
+"loop": true,
+"name": &"Orchidea_Walking",
+"speed": 5.0
+}]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_aqk2v")
+
+[node name="TransparentWindow" type="Node" parent="."]
+script = ExtResource("5_036b0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(573, 324)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_y32ns")
+animation = &"Orchidea_Startled"
+script = ExtResource("4_pkg7o")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(550.1483, 339.24707)
+scale = Vector2(2.0478454, 1.9764702)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(13.3333435, -22.666656, 13.3333435, -24.666656, 12, -24.666656, 12, -27.333328, 12, -28, 11.3333435, -28, 11.3333435, -28.666656, 10, -28.666656, 10, -30.666656, 9.3333435, -30.666656, 9.3333435, -31.333328, 8.666687, -32, 4, -32, 4, -30, 8, -30, 8, -28, 8.666687, -28, 8.666687, -27.333328, 10, -27.333328, 10, -23.333328, 10.666687, -23.333328, 10.666687, -22.666656, 9.3333435, -22.666656, 9.3333435, -23.333328, 8.666687, -24, 6, -24, 6, -22.666656, 4.666687, -22.666656, 4.666687, -22, 4, -22, 4, -16.666656, 4.666687, -16, 4.666687, -15.333328, 6, -15.333328, 6, -14.6666565, 6.666687, -14, 6, -13.333328, 6, -12.6666565, 4.666687, -12.6666565, 4.666687, -10.6666565, 4, -10.6666565, 4, -8, 2.666687, -8, 2.666687, -6, 2, -6, 2, -4.6666565, 0.666687, -4.6666565, 0.666687, -4, 0, -4, 0, -2.6666565, -2, -2.6666565, -2, -2, -4, -2, -4, -0.6666565, -6, -0.6666565, -6, 0, -8.6666565, 0, -9.333313, 0, -9.333313, 1.3333435, -11.333313, 1.3333435, -11.333313, 2, -13.333313, 2, -13.333313, 3.3333435, -16, 3.3333435, -16, 4, -19.333313, 4, -19.333313, 5.3333435, -22, 5.3333435, -22, 6.6666718, -22, 7.3333435, -24, 7.3333435, -24, 9.3333435, -23.333313, 10, -23.333313, 11.3333435, -22.666656, 12, -21.333313, 12, -21.333313, 12.666672, -19.333313, 12.666672, -19.333313, 14.666672, -18, 14.666672, -18, 17.333344, -19.333313, 17.333344, -19.333313, 18, -20, 18, -20, 19.333344, -21.333313, 19.333344, -21.333313, 20, -23.333313, 20, -23.333313, 21.333344, -24, 21.333344, -24, 24, -20.666656, 24, -20.666656, 22.666672, -18.666656, 22.666672, -18.666656, 22, -17.333313, 21.333344, -17.333313, 20.666672, -16, 20, -16, 19.333344, -14.6666565, 18.666672, -14.6666565, 18, -13.333313, 17.333344, -13.333313, 16.666672, -12.6666565, 16.666672, -12.6666565, 16, -12, 16, -12, 14.666672, -11.333313, 14.666672, -11.333313, 16.666672, -10.6666565, 16.666672, -10.6666565, 17.333344, -11.333313, 17.333344, -11.333313, 18, -12, 18, -12, 19.333344, -13.333313, 19.333344, -13.333313, 21.333344, -14, 21.333344, -14, 24, -12, 24, -12, 22.666672, -10.6666565, 22.666672, -10.6666565, 22, -9.333313, 21.333344, -9.333313, 20.666672, -8.6666565, 20.666672, -8.6666565, 19.333344, -7.333313, 19.333344, -7.333313, 18, -6.6666565, 17.333344, -6.6666565, 16.666672, -6, 16.666672, -6, 15.3333435, -6, 16.666672, -5.333313, 16, -3.333313, 16, -3.333313, 22.666672, -2, 22.666672, -2, 24, -1.333313, 24, -1.333313, 24.666672, 2, 24.666672, 2, 24, 4.666687, 24, 5.3333435, 23.333344, 5.3333435, 22.666672, 4.666687, 22, 4, 22, 4, 20, 3.3333435, 20, 3.3333435, 10.666672, 3.3333435, 10, 2, 10, 2, 8.666672, 3.3333435, 8.666672, 3.3333435, 7.3333435, 4, 7.3333435, 4.666687, 6.6666718, 4.666687, 8, 4.666687, 8.666672, 6, 9.3333435, 6, 11.3333435, 6, 12, 12, 12, 12.666687, 10.666672, 14.666687, 10.666672, 16, 10, 16, 8.666672, 18, 8.666672, 18, 7.3333435, 18.666687, 8.666672, 18.666687, 14, 17.333344, 14.666672, 16.666687, 15.3333435, 16.666687, 16.666672, 18, 17.333344, 18, 18.666672, 20.666687, 18.666672, 22, 16.666672, 26.666687, 13.84848, 28.25003, 10.242416, 26.666687, 2.6666718, 24.666687, 1.3333435, 24, -0.6666565, 22.666687, -2, 22, -2.6666565, 17.333344, -2.6666565, 14.666687, -0.6666565, 14, -5.3333282, 12.666687, -8.6666565, 14, -9.333328, 15.3333435, -8, 18, -8.6666565, 19.333344, -10.6666565, 21.333344, -14, 22, -17.333328, 22.666687, -18, 22.666687, -22, 21.333344, -22.666656, 20, -24, 18, -25.333328, 18, -27.333328, 20.666687, -27.333328, 21.333344, -28.666656, 22.666687, -30.666656, 22, -32, 20.666687, -31.333328, 19.333344, -30, 17.333344, -29.333328, 16.666687, -28, 15.3333435, -24.666656, 15.3333435, -22.666656)

@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Orchidea Desktop Pet"
+config/version="1.0"
+run/main_scene="res://world.tscn"
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0.14117648, 0.14117648, 0.14117648, 0)
+boot_splash/show_image=false
+config/icon="uid://cle3tyu3t1cst"
+config/windows_native_icon="res://Orchideaicon.ico"
+
+[display]
+
+window/size/mode=3
+window/size/resizable=false
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
+window/subwindows/embed_subwindows=false
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="Orchidea"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.419608, 0.419608, 0.419608, 0)
+viewport/transparent_background=true
